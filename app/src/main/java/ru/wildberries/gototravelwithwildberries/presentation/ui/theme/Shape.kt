@@ -1,4 +1,4 @@
-package ru.wildberries.gototravelwithwildberries.ui.theme
+package ru.wildberries.gototravelwithwildberries.presentation.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes

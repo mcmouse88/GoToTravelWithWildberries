@@ -1,4 +1,4 @@
-package ru.wildberries.gototravelwithwildberries.ui.theme
+package ru.wildberries.gototravelwithwildberries.presentation.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme

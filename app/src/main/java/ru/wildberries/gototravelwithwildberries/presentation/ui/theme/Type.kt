@@ -1,4 +1,4 @@
-package ru.wildberries.gototravelwithwildberries.ui.theme
+package ru.wildberries.gototravelwithwildberries.presentation.ui.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
