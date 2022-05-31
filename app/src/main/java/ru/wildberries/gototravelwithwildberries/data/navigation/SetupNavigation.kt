@@ -13,7 +13,7 @@ import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainView
 fun SetupNavigation(navController: NavHostController, viewModel: MainViewModel) {
     NavHost(
         navController = navController,
-        startDestination = Screens.Main.route
+        startDestination = Screens.Splash.route
     ) {
         composable(route = Screens.Splash.route) {
             SplashScreen(navController = navController, viewModel = viewModel)
