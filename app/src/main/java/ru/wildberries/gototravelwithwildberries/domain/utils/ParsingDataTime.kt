@@ -24,7 +24,7 @@ private fun parsingDateTime(date: String): LocalDateTime {
 
 private fun getDayOfWeek(localDateTime: LocalDateTime): String {
     // TODO throw exception
-    return when(localDateTime.dayOfWeek) {
+    return when (localDateTime.dayOfWeek) {
         DayOfWeek.MONDAY -> "Пн"
         DayOfWeek.TUESDAY -> "Вт"
         DayOfWeek.WEDNESDAY -> "Ср"
@@ -38,7 +38,7 @@ private fun getDayOfWeek(localDateTime: LocalDateTime): String {
 
 private fun getMonth(localDateTime: LocalDateTime): String {
     // TODO throw exception
-    return when(localDateTime.month) {
+    return when (localDateTime.month) {
         Month.JANUARY -> "Января"
         Month.FEBRUARY -> "Февраля"
         Month.MARCH -> "Марта"

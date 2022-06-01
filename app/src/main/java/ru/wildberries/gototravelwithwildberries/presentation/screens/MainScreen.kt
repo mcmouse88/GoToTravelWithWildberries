@@ -132,7 +132,7 @@ fun TicketItem(item: Data, navController: NavHostController) {
                         },
                     imageVector = Icons.Default.Favorite,
                     contentDescription = "",
-                    tint = if (isLikeStatus) Color.Red else Color.Gray
+                    tint = if (isLikeStatus) Color(0xFFCB11AB) else Color.Gray
                 )
             }
         }
