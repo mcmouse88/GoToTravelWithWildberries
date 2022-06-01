@@ -23,6 +23,7 @@ import androidx.navigation.NavHostController
 import ru.wildberries.gototravelwithwildberries.domain.utils.formatNumberForPrice
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingDate
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingTime
+import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
 
 @Composable
@@ -43,7 +44,8 @@ fun DetailScreen(
         Card(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp),
+                .padding(start = 40.dp, end = 40.dp)
+                .padding(top = 100.dp, bottom = 100.dp),
             elevation = 8.dp,
         ) {
             Column(
@@ -51,12 +53,13 @@ fun DetailScreen(
             ) {
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, end = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
                         text = currentWay?.let { parsingDate(it.startDate) } ?: "",
-                        fontSize = 16.sp
+                        style = MontserratTypography.h6
                     )
                     Text(
                         text = currentWay?.let { parsingDate(it.endDate) } ?: "",

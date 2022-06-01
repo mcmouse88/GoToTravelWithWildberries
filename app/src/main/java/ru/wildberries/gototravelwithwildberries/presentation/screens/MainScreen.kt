@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +28,7 @@ import ru.wildberries.gototravelwithwildberries.domain.pojo.Data
 import ru.wildberries.gototravelwithwildberries.domain.utils.formatNumberForPrice
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingDate
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingTime
+import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -65,41 +67,48 @@ fun TicketItem(item: Data, navController: NavHostController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 4.dp),
-                horizontalArrangement = Arrangement.SpaceAround
+                    .padding(top = 10.dp)
+                    .padding(start = 10.dp, end = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = parsingDate(item.startDate),
-                    fontSize = 14.sp
+                    style = MontserratTypography.h6,
+                    color = Color.Gray
                 )
 
                 Text(
                     text = parsingDate(item.endDate),
-                    fontSize = 14.sp
+                    style = MontserratTypography.h6,
+                    color = Color.Gray
                 )
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceAround
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 10.dp, end = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = parsingTime(item.startDate),
-                    fontSize = 32.sp,
+                    style = MontserratTypography.h2,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = parsingTime(item.endDate),
-                    fontSize = 32.sp,
+                    style = MontserratTypography.h2,
                     fontWeight = FontWeight.Bold
                 )
             }
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.SpaceAround
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 10.dp, end = 10.dp),
+                horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = item.startCity,
-                    fontSize = 14.sp
+                    style = MontserratTypography.h6
                 )
                 Text(
                     text = item.endCity,
@@ -109,12 +118,14 @@ fun TicketItem(item: Data, navController: NavHostController) {
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(top = 10.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly
+                    .padding(top = 10.dp, bottom = 10.dp)
+                    .padding(start = 60.dp, end = 60.dp),
+                horizontalArrangement = Arrangement.SpaceEvenly,
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
                     text = formatNumberForPrice(item.price),
-                    fontSize = 32.sp,
+                    style = MontserratTypography.h2,
                     fontWeight = FontWeight.Bold
                 )
                 var isLikeStatus by remember {
