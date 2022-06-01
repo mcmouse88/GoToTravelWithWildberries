@@ -106,6 +106,10 @@ fun SplashLayout(alpha: Float, progress: Float) {
 fun angledComponent(): Brush {
     return Brush.horizontalGradient(
         // TODO Вставить ссылки из ресурсов
-        colors = listOf(Color(0xFFCB11AB), Color(0xFF481173)),
+        colors = listOf(
+            Color(0xFFCB11AB),
+            Color(0xFF990099),
+            Color(0xFF481173)
+        ),
     )
 }
