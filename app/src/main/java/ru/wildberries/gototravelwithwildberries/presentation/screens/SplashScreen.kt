@@ -20,6 +20,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.wildberries.gototravelwithwildberries.data.navigation.Screens
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
+import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.angledComponent
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
 
 @Composable
@@ -101,15 +102,4 @@ fun SplashLayout(alpha: Float, progress: Float) {
             )
         }
     }
-}
-
-fun angledComponent(): Brush {
-    return Brush.horizontalGradient(
-        // TODO Вставить ссылки из ресурсов
-        colors = listOf(
-            Color(0xFFCB11AB),
-            Color(0xFF990099),
-            Color(0xFF481173)
-        ),
-    )
 }

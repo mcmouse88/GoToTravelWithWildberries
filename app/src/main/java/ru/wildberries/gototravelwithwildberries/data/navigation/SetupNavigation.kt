@@ -6,6 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.Token.DEFAULT_TOKEN
+import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.Token.TOKEN_KEY
 import ru.wildberries.gototravelwithwildberries.presentation.screens.DetailScreen
 import ru.wildberries.gototravelwithwildberries.presentation.screens.MainScreen
 import ru.wildberries.gototravelwithwildberries.presentation.screens.SplashScreen
@@ -26,11 +28,11 @@ fun SetupNavigation(navController: NavHostController, viewModel: MainViewModel) 
             MainScreen(navController = navController, viewModel = viewModel)
         }
 
-        composable(route = Screens.Detail.route + "/{searchToken}") {
+        composable(route = Screens.Detail.route + "/{$TOKEN_KEY}") {
             DetailScreen(
                 viewModel = viewModel,
                 navController = navController,
-                searchToken = it.arguments?.getString("searchToken") ?: "MOW1707LED2407Y100"
+                searchToken = it.arguments?.getString(TOKEN_KEY) ?: DEFAULT_TOKEN
             )
         }
     }

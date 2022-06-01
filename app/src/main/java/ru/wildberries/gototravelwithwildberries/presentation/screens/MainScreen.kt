@@ -19,16 +19,20 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import ru.wildberries.gototravelwithwildberries.R
 import ru.wildberries.gototravelwithwildberries.data.navigation.Screens
 import ru.wildberries.gototravelwithwildberries.domain.pojo.Data
 import ru.wildberries.gototravelwithwildberries.domain.utils.formatNumberForPrice
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingDate
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingTime
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
+import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.angledComponent
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -142,8 +146,8 @@ fun TicketItem(item: Data, navController: NavHostController) {
                             isLikeStatus = !isLikeStatus
                         },
                     imageVector = Icons.Default.Favorite,
-                    contentDescription = "",
-                    tint = if (isLikeStatus) Color(0xFFCB11AB) else Color.Gray
+                    contentDescription = stringResource(id = R.string.like),
+                    tint = if (isLikeStatus) colorResource(id = R.color.magenta) else Color.Gray
                 )
             }
         }

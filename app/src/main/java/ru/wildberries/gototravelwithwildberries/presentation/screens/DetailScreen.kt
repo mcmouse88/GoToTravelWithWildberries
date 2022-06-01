@@ -16,14 +16,18 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import ru.wildberries.gototravelwithwildberries.R
 import ru.wildberries.gototravelwithwildberries.domain.utils.formatNumberForPrice
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingDate
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingTime
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
+import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.angledComponent
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
 
 @Composable
@@ -130,8 +134,9 @@ fun DetailScreen(
                                     isLikeStatus = !isLikeStatus
                                 },
                             imageVector = Icons.Default.Favorite,
-                            contentDescription = "",
-                            tint = if (isLikeStatus) Color(0xFFCB11AB) else Color.Gray
+                            contentDescription = stringResource(id = R.string.like),
+                            tint = if (isLikeStatus) colorResource(id = R.color.magenta)
+                            else Color.Gray
                         )
                     }
                 }
@@ -147,10 +152,11 @@ fun DetailScreen(
                             .size(width = 120.dp, height = 40.dp)
                             .clickable { navController.popBackStack() },
                         elevation = 4.dp,
-                        backgroundColor = Color(0xFFCB11AB)
+                        backgroundColor = colorResource(id = R.color.magenta)
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier
+                                .fillMaxSize()
                                 .padding(start = 10.dp, end = 10.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
@@ -158,11 +164,11 @@ fun DetailScreen(
                             Icon(
                                 modifier = Modifier.size(30.dp),
                                 imageVector = Icons.Default.ArrowBack,
-                                contentDescription = "Back",
+                                contentDescription = stringResource(id = R.string.back),
                                 tint = Color.White
                             )
                             Text(
-                                text = "НАЗАД",
+                                text = stringResource(id = R.string.back),
                                 style = MontserratTypography.h5,
                                 color = Color.White
                             )

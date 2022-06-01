@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="magenta">#FFCB11AB</color>
-    <color name="dark_violet">#FF481173</color>
     <color name="purplish">#FF990099</color>
+    <color name="dark_violet">#FF481173</color>
 </resources>

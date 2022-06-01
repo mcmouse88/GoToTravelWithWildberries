@@ -23,7 +23,6 @@ class MainViewModel @Inject constructor(private val repository: ApiRepository) :
             repository.getData().let {
                 if (it.isSuccessful) {
                     _allData.postValue(it.body()?.data)
-                    Log.d("checkData", "Success load data ${it.body()?.data}")
                 }
                 else {
                     Log.d("checkData", "Fail load data ${it.errorBody()}")

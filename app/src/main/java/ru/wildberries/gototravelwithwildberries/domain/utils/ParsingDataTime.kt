@@ -1,56 +1,68 @@
 package ru.wildberries.gototravelwithwildberries.domain.utils
 
+import android.content.res.Resources
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
+import ru.wildberries.gototravelwithwildberries.R
+import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDateTime.DATE_PARSING
+import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDateTime.PATTERN_INPUT_PARSING
+import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDateTime.TIME_PARSING
 import java.time.DayOfWeek
 import java.time.LocalDateTime
 import java.time.Month
 import java.time.format.DateTimeFormatter
 
+@Composable
 fun parsingDate(date: String): String {
     val localDateTime = parsingDateTime(date)
-    val outFormatter = DateTimeFormatter.ofPattern("dd")
+    val outFormatter = DateTimeFormatter.ofPattern(DATE_PARSING)
     return "${outFormatter.format(localDateTime)} ${getMonth(localDateTime)}, ${getDayOfWeek(localDateTime)}"
 }
 
 fun parsingTime(date: String): String {
     val localTime = parsingDateTime(date)
-    val outFormatter = DateTimeFormatter.ofPattern("HH:mm")
+    val outFormatter = DateTimeFormatter.ofPattern(TIME_PARSING)
     return outFormatter.format(localTime)
 }
 
 private fun parsingDateTime(date: String): LocalDateTime {
-    val inFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss'Z'")
+    val inFormatter = DateTimeFormatter.ofPattern(PATTERN_INPUT_PARSING)
     return LocalDateTime.parse(date, inFormatter)
 }
 
+@Composable
 private fun getDayOfWeek(localDateTime: LocalDateTime): String {
     // TODO throw exception
     return when (localDateTime.dayOfWeek) {
-        DayOfWeek.MONDAY -> "Пн"
-        DayOfWeek.TUESDAY -> "Вт"
-        DayOfWeek.WEDNESDAY -> "Ср"
-        DayOfWeek.THURSDAY -> "Чт"
-        DayOfWeek.FRIDAY -> "Пт"
-        DayOfWeek.SATURDAY -> "Сб"
-        DayOfWeek.SUNDAY -> "Вс"
+        DayOfWeek.MONDAY -> stringResource(id = R.string.monday)
+        DayOfWeek.TUESDAY -> stringResource(id = R.string.tuesday)
+        DayOfWeek.WEDNESDAY -> stringResource(id = R.string.wednesday)
+        DayOfWeek.THURSDAY -> stringResource(id = R.string.thursday)
+        DayOfWeek.FRIDAY -> stringResource(id = R.string.friday)
+        DayOfWeek.SATURDAY -> stringResource(id = R.string.saturday)
+        DayOfWeek.SUNDAY -> stringResource(id = R.string.sunday)
         null -> ""
     }
 }
 
+@Composable
 private fun getMonth(localDateTime: LocalDateTime): String {
     // TODO throw exception
     return when (localDateTime.month) {
-        Month.JANUARY -> "Января"
-        Month.FEBRUARY -> "Февраля"
-        Month.MARCH -> "Марта"
-        Month.APRIL -> "Апреля"
-        Month.MAY -> "Мая"
-        Month.JUNE -> "Июня"
-        Month.JULY -> "Июля"
-        Month.AUGUST -> "Августа"
-        Month.SEPTEMBER -> "Сентября"
-        Month.OCTOBER -> "Октября"
-        Month.NOVEMBER -> "Ноября"
-        Month.DECEMBER -> "Декабря"
+        Month.JANUARY -> stringResource(id = R.string.january)
+        Month.FEBRUARY -> stringResource(id = R.string.february)
+        Month.MARCH -> stringResource(id = R.string.march)
+        Month.APRIL -> stringResource(id = R.string.april)
+        Month.MAY -> stringResource(id = R.string.may)
+        Month.JUNE -> stringResource(id = R.string.june)
+        Month.JULY -> stringResource(id = R.string.july)
+        Month.AUGUST -> stringResource(id = R.string.august)
+        Month.SEPTEMBER -> stringResource(id = R.string.september)
+        Month.OCTOBER -> stringResource(id = R.string.october)
+        Month.NOVEMBER -> stringResource(id = R.string.november)
+        Month.DECEMBER -> stringResource(id = R.string.december)
         null -> ""
     }
 }
+
+private fun getResource(id: Int): String = Resources.getSystem().getString(id)
