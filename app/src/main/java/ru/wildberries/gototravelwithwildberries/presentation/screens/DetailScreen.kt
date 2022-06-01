@@ -44,7 +44,7 @@ fun DetailScreen(
         Card(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(start = 40.dp, end = 40.dp)
+                .padding(start = 30.dp, end = 30.dp)
                 .padding(top = 100.dp, bottom = 100.dp),
             elevation = 8.dp,
         ) {
@@ -59,50 +59,56 @@ fun DetailScreen(
                 ) {
                     Text(
                         text = currentWay?.let { parsingDate(it.startDate) } ?: "",
-                        style = MontserratTypography.h6
+                        style = MontserratTypography.h5,
+                        color = Color.Gray
                     )
                     Text(
                         text = currentWay?.let { parsingDate(it.endDate) } ?: "",
-                        fontSize = 16.sp
+                        style = MontserratTypography.h5,
+                        color = Color.Gray
                     )
                 }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                        .padding(start = 10.dp, end = 10.dp)
+                        .padding(top = 6.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
                         text = currentWay?.let { parsingTime(it.startDate) } ?: "",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 32.sp
+                        style = MontserratTypography.h1
                     )
                     Text(
                         text = currentWay?.let { parsingTime(it.endDate) } ?: "",
                         fontWeight = FontWeight.Bold,
-                        fontSize = 32.sp
+                        style = MontserratTypography.h1
                     )
                 }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(vertical = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                        .padding(start = 10.dp, end = 10.dp)
+                        .padding(top = 6.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Text(
                         text = currentWay?.startCity ?: "",
-                        fontSize = 18.sp
+                        style = MontserratTypography.h5
                     )
                     Text(
                         text = currentWay?.endCity ?: "",
-                        fontSize = 18.sp
+                        style = MontserratTypography.h5
                     )
                 }
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.SpaceEvenly
+                        .padding(top = 40.dp)
+                        .padding(start = 60.dp, end = 60.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
                         text = currentWay?.let { formatNumberForPrice(it.price) } ?: "",
@@ -129,10 +135,12 @@ fun DetailScreen(
                         )
                     }
                 }
-                Row(modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 10.dp),
-                    horizontalArrangement = Arrangement.Center
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 60.dp),
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.Bottom
                 ) {
                     Card(
                         modifier = Modifier
@@ -142,7 +150,8 @@ fun DetailScreen(
                         backgroundColor = Color(0xFFCB11AB)
                     ) {
                         Row(
-                            modifier = Modifier.fillMaxSize(),
+                            modifier = Modifier.fillMaxSize()
+                                .padding(start = 10.dp, end = 10.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly,
                             verticalAlignment = Alignment.CenterVertically
                         ) {
@@ -154,7 +163,7 @@ fun DetailScreen(
                             )
                             Text(
                                 text = "НАЗАД",
-                                fontSize = 16.sp,
+                                style = MontserratTypography.h5,
                                 color = Color.White
                             )
                         }

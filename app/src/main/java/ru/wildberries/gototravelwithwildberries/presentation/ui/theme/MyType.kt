@@ -20,7 +20,7 @@ val MontserratTypography = Typography(
     h1 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 48.sp
+        fontSize = 36.sp
     ),
 
     h2 = TextStyle(
