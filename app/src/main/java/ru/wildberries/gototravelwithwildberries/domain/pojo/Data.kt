@@ -8,5 +8,6 @@ data class Data(
     val searchToken: String,
     val startCity: String,
     val startCityCode: String,
-    val startDate: String
+    val startDate: String,
+    var isLike: Boolean = false
 )
