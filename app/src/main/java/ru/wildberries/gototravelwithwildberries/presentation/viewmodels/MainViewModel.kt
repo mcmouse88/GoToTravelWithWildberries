@@ -1,6 +1,7 @@
 package ru.wildberries.gototravelwithwildberries.presentation.viewmodels
 
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,13 +21,16 @@ class MainViewModel @Inject constructor(private val repository: ApiRepository) :
 
     fun getAllData() {
         viewModelScope.launch {
-            repository.getData().let {
-                if (it.isSuccessful) {
-                    _allData.postValue(it.body()?.data)
+            try {
+                repository.getData().let {
+                    if (it.isSuccessful) {
+                        _allData.postValue(it.body()?.data)
+                    } else {
+                        Log.d("checkData", "Fail load data ${it.errorBody()}")
+                    }
                 }
-                else {
-                    Log.d("checkData", "Fail load data ${it.errorBody()}")
-                }
+            } catch (e: Exception) {
+                Log.d("checkData", "No Internet Connection")
             }
         }
     }
