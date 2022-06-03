@@ -1,5 +1,6 @@
 package ru.wildberries.gototravelwithwildberries.presentation.screens
 
+import android.content.res.Configuration
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.background
@@ -19,6 +20,7 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -30,6 +32,8 @@ import ru.wildberries.gototravelwithwildberries.domain.pojo.Data
 import ru.wildberries.gototravelwithwildberries.domain.utils.formatNumberForPrice
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingDate
 import ru.wildberries.gototravelwithwildberries.domain.utils.parsingTime
+import ru.wildberries.gototravelwithwildberries.presentation.screens.orientation.DetailLandscape
+import ru.wildberries.gototravelwithwildberries.presentation.screens.orientation.MainScreenLandscape
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.angledComponent
 import ru.wildberries.gototravelwithwildberries.presentation.viewmodels.MainViewModel
@@ -66,87 +70,95 @@ fun TicketItem(item: Data, navController: NavHostController) {
                 navController.navigate(Screens.Detail.route + "/${item.searchToken}")
             }
     ) {
-        Column {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 10.dp)
-                    .padding(start = 10.dp, end = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = parsingDate(item.startDate),
-                    style = MontserratTypography.h6,
-                )
-
-                Text(
-                    text = parsingDate(item.endDate),
-                    style = MontserratTypography.h6,
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 10.dp, end = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = parsingTime(item.startDate),
-                    style = MontserratTypography.h3,
-                    fontWeight = FontWeight.Bold
-                )
-                Text(
-                    text = parsingTime(item.endDate),
-                    style = MontserratTypography.h3,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(start = 10.dp, end = 10.dp),
-                horizontalArrangement = Arrangement.SpaceBetween
-            ) {
-                Text(
-                    text = item.startCity,
-                    style = MontserratTypography.h6
-                )
-                Text(
-                    text = item.endCity,
-                    style = MontserratTypography.h6
-                )
-            }
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 10.dp, bottom = 10.dp)
-                    .padding(start = 60.dp, end = 60.dp),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Text(
-                    text = formatNumberForPrice(item.price),
-                    style = MontserratTypography.h3,
-                    fontWeight = FontWeight.Bold
-                )
-                var isLikeStatus by remember {
-                    mutableStateOf(item.isLike)
-                }
-                Icon(
+        val configuration = LocalConfiguration.current
+        if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Column {
+                Row(
                     modifier = Modifier
-                        .size(30.dp)
-                        .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = rememberRipple(bounded = false),
-                        ) {
-                            item.isLike = !item.isLike
-                            isLikeStatus = !isLikeStatus
-                        },
-                    imageVector = Icons.Default.Favorite,
-                    contentDescription = stringResource(id = R.string.like),
-                    tint = if (isLikeStatus) colorResource(id = R.color.magenta) else Color.Gray
-                )
+                        .fillMaxWidth()
+                        .padding(top = 10.dp)
+                        .padding(start = 10.dp, end = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = parsingDate(item.startDate),
+                        style = MontserratTypography.h6,
+                    )
+
+                    Text(
+                        text = parsingDate(item.endDate),
+                        style = MontserratTypography.h6,
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, end = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = parsingTime(item.startDate),
+                        style = MontserratTypography.h3,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Text(
+                        text = parsingTime(item.endDate),
+                        style = MontserratTypography.h3,
+                        fontWeight = FontWeight.Bold
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 10.dp, end = 10.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween
+                ) {
+                    Text(
+                        text = item.startCity,
+                        style = MontserratTypography.h6
+                    )
+                    Text(
+                        text = item.endCity,
+                        style = MontserratTypography.h6
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 10.dp, bottom = 10.dp)
+                        .padding(start = 60.dp, end = 60.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = formatNumberForPrice(item.price),
+                        style = MontserratTypography.h3,
+                        fontWeight = FontWeight.Bold
+                    )
+                    var isLikeStatus by remember {
+                        mutableStateOf(item.isLike)
+                    }
+                    Icon(
+                        modifier = Modifier
+                            .size(30.dp)
+                            .clickable(
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = rememberRipple(bounded = false),
+                            ) {
+                                item.isLike = !item.isLike
+                                isLikeStatus = !isLikeStatus
+                            },
+                        imageVector = Icons.Default.Favorite,
+                        contentDescription = stringResource(id = R.string.like),
+                        tint = if (isLikeStatus) colorResource(id = R.color.magenta) else Color.Gray
+                    )
+                }
             }
+
         }
+        else {
+            MainScreenLandscape(navController = navController, item = item)
+        }
+
     }
 }
