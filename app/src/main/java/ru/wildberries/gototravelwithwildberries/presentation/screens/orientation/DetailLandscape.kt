@@ -124,7 +124,7 @@ fun DetailLandscape(currentWay: Data?, navController: NavHostController) {
                     drawLine(
                         start = Offset(x = 50f, y = 0f),
                         end = Offset(x = 50f, y = size.height),
-                        color = Color.Gray,
+                        color = Color.Magenta,
                         pathEffect = path,
                         strokeWidth = 5f
                     )
