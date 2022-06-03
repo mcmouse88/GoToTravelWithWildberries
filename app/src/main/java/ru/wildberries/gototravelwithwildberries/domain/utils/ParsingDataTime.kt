@@ -1,6 +1,5 @@
 package ru.wildberries.gototravelwithwildberries.domain.utils
 
-import android.content.res.Resources
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import ru.wildberries.gototravelwithwildberries.R
@@ -8,6 +7,7 @@ import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDa
 import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDateTime.PATTERN_INPUT_PARSING
 import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ParsingDateTime.TIME_PARSING
 import java.time.DayOfWeek
+import java.time.Duration
 import java.time.LocalDateTime
 import java.time.Month
 import java.time.format.DateTimeFormatter
@@ -16,7 +16,11 @@ import java.time.format.DateTimeFormatter
 fun parsingDate(date: String): String {
     val localDateTime = parsingDateTime(date)
     val outFormatter = DateTimeFormatter.ofPattern(DATE_PARSING)
-    return "${outFormatter.format(localDateTime)} ${getMonth(localDateTime)}, ${getDayOfWeek(localDateTime)}"
+    return "${outFormatter.format(localDateTime)} ${getMonth(localDateTime)}, ${
+        getDayOfWeek(
+            localDateTime
+        )
+    }"
 }
 
 fun parsingTime(date: String): String {
@@ -65,4 +69,26 @@ private fun getMonth(localDateTime: LocalDateTime): String {
     }
 }
 
-private fun getResource(id: Int): String = Resources.getSystem().getString(id)
+@Composable
+fun differenceDate(startDate: String, endDate: String): String {
+    val start = parsingDateTime(date = startDate)
+    val end = parsingDateTime(date = endDate)
+
+
+    val duration = Duration.between(start, end);
+    val days = duration.toDays()
+    val hours = duration.toHours() % 24
+    val minutes = duration.toMinutes() % 60
+
+    return if (days != 0L) String.format(stringResource(
+        id = R.string.in_way_with_day,
+        days,
+        hours,
+        minutes
+    ))
+    else String.format(
+        stringResource(id = R.string.in_way_without_day),
+        hours,
+        minutes
+    )
+}

@@ -20,37 +20,43 @@ val MontserratTypography = Typography(
     h1 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 36.sp
+        fontSize = 52.sp,
+        color = Color(0xFF990099)
     ),
 
     h2 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 32.sp
+        fontSize = 48.sp,
+        color = Color(0xFF990099)
     ),
 
     h3 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 20.sp
+        fontSize = 32.sp,
+        color = Color(0xFF990099)
     ),
 
     h4 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 18.sp
+        fontSize = 24.sp,
+        color = Color(0xFF990099)
     ),
 
     h5 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 16.sp
+        fontSize = 16.sp,
+        color = Color(0xFF990099)
     ),
 
     h6 = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.W500,
-        fontSize = 14.sp
+        fontSize = 14.sp,
+        color = Color(0xFF990099)
     ),
 
     subtitle1 = TextStyle(

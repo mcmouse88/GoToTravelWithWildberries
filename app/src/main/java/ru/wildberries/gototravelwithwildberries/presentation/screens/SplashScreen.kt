@@ -11,13 +11,14 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ru.wildberries.gototravelwithwildberries.R
 import ru.wildberries.gototravelwithwildberries.data.navigation.Screens
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.MontserratTypography
 import ru.wildberries.gototravelwithwildberries.presentation.ui.theme.angledComponent
@@ -50,7 +51,9 @@ fun SplashScreen(navController: NavHostController, viewModel: MainViewModel) {
         }
         viewModel.getAllData()
         delay(timeMillis = 4000)
-        navController.navigate(Screens.Main.route)
+        navController.navigate(Screens.Main.route) {
+            popUpTo(0)
+        }
     }
     SplashLayout(alpha = alphaAnimation.value, progress = progress)
 }
@@ -67,8 +70,7 @@ fun SplashLayout(alpha: Float, progress: Float) {
         ) {
             Row {
                 Text(
-                    // TODO строковые ресурсы
-                    text = "WILDBERRIES",
+                    text = stringResource(id = R.string.wildberries),
                     modifier = Modifier.padding(bottom = 10.dp),
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
@@ -78,7 +80,7 @@ fun SplashLayout(alpha: Float, progress: Float) {
             Row {
                 Text(
                     // TODO строковые ресурсы
-                    text = "TRAVELING",
+                    text = stringResource(id = R.string.traveling),
                     modifier = Modifier.padding(top = 10.dp),
                     color = Color.White,
                     fontWeight = FontWeight.Bold,
