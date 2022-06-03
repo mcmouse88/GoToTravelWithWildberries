@@ -23,7 +23,6 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import ru.wildberries.gototravelwithwildberries.R
 import ru.wildberries.gototravelwithwildberries.data.navigation.Screens
@@ -78,13 +77,11 @@ fun TicketItem(item: Data, navController: NavHostController) {
                 Text(
                     text = parsingDate(item.startDate),
                     style = MontserratTypography.h6,
-                    color = Color.Gray
                 )
 
                 Text(
                     text = parsingDate(item.endDate),
                     style = MontserratTypography.h6,
-                    color = Color.Gray
                 )
             }
             Row(
@@ -95,12 +92,12 @@ fun TicketItem(item: Data, navController: NavHostController) {
             ) {
                 Text(
                     text = parsingTime(item.startDate),
-                    style = MontserratTypography.h2,
+                    style = MontserratTypography.h3,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
                     text = parsingTime(item.endDate),
-                    style = MontserratTypography.h2,
+                    style = MontserratTypography.h3,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -116,7 +113,7 @@ fun TicketItem(item: Data, navController: NavHostController) {
                 )
                 Text(
                     text = item.endCity,
-                    fontSize = 14.sp
+                    style = MontserratTypography.h6
                 )
             }
             Row(
@@ -129,7 +126,7 @@ fun TicketItem(item: Data, navController: NavHostController) {
             ) {
                 Text(
                     text = formatNumberForPrice(item.price),
-                    style = MontserratTypography.h2,
+                    style = MontserratTypography.h3,
                     fontWeight = FontWeight.Bold
                 )
                 var isLikeStatus by remember {

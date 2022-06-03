@@ -22,4 +22,9 @@
     <string name="price">%s &#8381;</string>
     <string name="back">НАЗАД</string>
     <string name="like">Нравится</string>
+    <string name="total_price">Общая цена</string>
+    <string name="wildberries">WILDBERRIES</string>
+    <string name="traveling">TRAVELING</string>
+    <string name="in_way_with_day">В пути %s д %s ч %s мин</string>
+    <string name="in_way_without_day">В пути %s ч %s мин</string>
 </resources>

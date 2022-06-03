@@ -8,7 +8,6 @@ import ru.wildberries.gototravelwithwildberries.R
 @Composable
 fun angledComponent(): Brush {
     return Brush.horizontalGradient(
-        // TODO Вставить ссылки из ресурсов
         colors = listOf(
             colorResource(id = R.color.magenta),
             colorResource(id = R.color.purplish),
