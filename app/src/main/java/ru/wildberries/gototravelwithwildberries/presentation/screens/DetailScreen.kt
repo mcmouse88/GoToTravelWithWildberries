@@ -31,8 +31,7 @@ fun DetailScreen(
         val configuration = LocalConfiguration.current
         if (configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             DetailPortrait(currentWay = currentWay, navController = navController)
-        }
-        else {
+        } else {
             DetailLandscape(currentWay = currentWay, navController = navController)
         }
     }

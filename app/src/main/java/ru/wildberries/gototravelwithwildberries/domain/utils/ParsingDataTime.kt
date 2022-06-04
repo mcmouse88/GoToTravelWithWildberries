@@ -80,12 +80,14 @@ fun differenceDate(startDate: String, endDate: String): String {
     val hours = duration.toHours() % 24
     val minutes = duration.toMinutes() % 60
 
-    return if (days != 0L) String.format(stringResource(
-        id = R.string.in_way_with_day,
-        days,
-        hours,
-        minutes
-    ))
+    return if (days != 0L) String.format(
+        stringResource(
+            id = R.string.in_way_with_day,
+            days,
+            hours,
+            minutes
+        )
+    )
     else String.format(
         stringResource(id = R.string.in_way_without_day),
         hours,

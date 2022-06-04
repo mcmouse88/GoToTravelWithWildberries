@@ -6,7 +6,7 @@ import ru.wildberries.gototravelwithwildberries.domain.utils.Constants.ScreensRo
 
 sealed class Screens(val route: String) {
 
-    object Splash: Screens(route = SPLASH_SCREEN)
-    object Main: Screens(route = MAIN_SCREEN)
-    object Detail: Screens(route = DETAIL_SCREEN)
+    object Splash : Screens(route = SPLASH_SCREEN)
+    object Main : Screens(route = MAIN_SCREEN)
+    object Detail : Screens(route = DETAIL_SCREEN)
 }
