@@ -79,7 +79,6 @@ fun SplashLayout(alpha: Float, progress: Float) {
             }
             Row {
                 Text(
-                    // TODO строковые ресурсы
                     text = stringResource(id = R.string.traveling),
                     modifier = Modifier.padding(top = 10.dp),
                     color = Color.White,

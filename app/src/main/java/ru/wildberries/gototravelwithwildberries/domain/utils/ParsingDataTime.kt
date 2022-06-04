@@ -36,7 +36,6 @@ private fun parsingDateTime(date: String): LocalDateTime {
 
 @Composable
 private fun getDayOfWeek(localDateTime: LocalDateTime): String {
-    // TODO throw exception
     return when (localDateTime.dayOfWeek) {
         DayOfWeek.MONDAY -> stringResource(id = R.string.monday)
         DayOfWeek.TUESDAY -> stringResource(id = R.string.tuesday)
@@ -51,7 +50,6 @@ private fun getDayOfWeek(localDateTime: LocalDateTime): String {
 
 @Composable
 private fun getMonth(localDateTime: LocalDateTime): String {
-    // TODO throw exception
     return when (localDateTime.month) {
         Month.JANUARY -> stringResource(id = R.string.january)
         Month.FEBRUARY -> stringResource(id = R.string.february)
